@@ -45,7 +45,6 @@ with open(pybank) as csvfile:
         profit_loss.append(int(row[1]))
     change = round((profit_loss[-1] - profit_loss[0]) / (len(months) -1),2) #need to round
 
-
 #print commands
 print("Financial Analysis")
 print("_ _ _ _ _ _ _ _ _ _ _")
@@ -55,9 +54,7 @@ print(f"Average Change: ${change}")
 print(f"Greatest Increase in Profits: {increase_month} ${increase}")
 print(f"Greatest Decrease in Profit:{decrease_month} ${decrease}")
 
-
 #create text file of analysis
-
 with open('PyBank_Financial_Analysis.txt', 'w') as f:
     f.write("Financial Analysis\n")
     f.write("_ _ _ _ _ _ _ _ _ _ _\n")
@@ -66,3 +63,4 @@ with open('PyBank_Financial_Analysis.txt', 'w') as f:
     f.write(f"Average Change: ${change}\n")
     f.write(f"Greatest Increase in Profits: {increase_month} ${increase}\n")
     f.write(f"Greatest Decrease in Profit: {decrease_month} ${decrease}\n")
+    f.close()
