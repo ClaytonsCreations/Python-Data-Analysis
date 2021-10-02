@@ -2,7 +2,7 @@ import os
 import csv
 
 #getting csv file
-pybank = os.path.join("Resources", "budget_data1.csv")
+pybank = os.path.join("Resources", "budget_data 3.csv")
 
 #lists
 months = []
