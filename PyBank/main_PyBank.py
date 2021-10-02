@@ -31,14 +31,23 @@ with open(pybank) as csvfile:
         total = total + int(row[1])
         #The greatest increase in profits (date and amount) over the entire period
         #row[1] need to find the highest number and pull date from row[0]
-        if int(row[1]) > increase:
-            increase = int(row[1])
-            increase_month = row[0]
+        for i in range(len(profit_loss)-1):
+            first = profit_loss[i]
+            second = profit_loss[i+1]
+            row_change = second - first
+            change.append(row_change)
+
+    #Finding greatest increase and decrease
+        for j in range(len(change)):
+            if change[j] > increase:
+                increase = change[j]
+                increase_month = months[-2]
+              
         #The greatest decrease in profits (date and amount) over the over the entire period
         #row[1] need to find the lowest number and pull date from row[0]
-        if int(row[1]) < decrease:
-            decrease = int(row[1])
-            decrease_month = row[0]
+            if change[j] < decrease:
+                decrease = change[j]
+                decrease_month = months[-2]
 
         #Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
         #take net from above and divide by number of months
